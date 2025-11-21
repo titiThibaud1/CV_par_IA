@@ -1,0 +1,66 @@
+Prompt 1
+
+J'ai besoin d'une page HTML pour un CV personnel contenant les informations suivante :
+
+- Une section "A propos" pour y renseigner des informations général sur moi, le poste recherché et un descriptif bref de ma personne
+- Une section "Compétences" pour y renseigner mes compétences
+- Une section "Projets" pour y renseigner des projets réalisé
+- Une section "A Contact" pour y renseigner mes informations personnelles
+
+Tu peux écrire des informations aléatoire dans les différentes catégorie en inventant un personnage afin de meubler en attendant mes infos personnelles.
+
+Le site doit être professionnel, et présentable à un recruteur.
+Il doit être interactif et jolie, sur un thème sombre et pouvant changer le thème (dark ou light mode), des léger animation de souris sur les bouton, des animation lors des interaction etc... Un site moderne et pro.
+
+Tu peux intégrer directement dans le code HTML, du CSS ainsi que du javascript si nécessaire.
+
+
+==========================================================================================================================================
+Prompt 2
+
+Quand je change de thème, la couleur du texte doit aussi changer afin de rester lisible.
+Sépare également les différentes parties afin de pouvoir y accéder via un bouton dans un entête.
+
+
+==========================================================================================================================================
+Prompt 3
+
+Dans la catégorie contact, rajoute un formulaire pour envoyer un mail.
+Il doit y avoir 1 input pour l'objet du mail qui doit être un menu déroulant avec des choix preset, une 2ème input avec le corps du mail, et enfin un bouton "envoyer" qui, une fois appuyé, va renvoyer sur le mail "fourretoutspamtest@gmail.com" avec les infos de Objet dans l'objet du mail, et le corps du message en message du mail.
+
+
+==========================================================================================================================================
+Prompt 4
+
+Dans la catégorie Projet, faire en sorte que chaque projet soit ait une flèche pour étendre le projet et laisser afficher un descriptif plus complet, et il pourrait être remonté pour le cacher a nouveau
+
+
+==========================================================================================================================================
+Prompt 5
+
+Ca ne me va pas comme ca, il faut que pour chaque projet, seulement le nom et une courte description soit visible, mais quand on click dessus, la description précise s'affiche en dessous comment un menu déroulant. On doit également pourvoir la refermer pour masquer cette description.
+
+
+==========================================================================================================================================
+Prompt 6
+
+Parfait, rajoute simplement un petit triangle sur la coté gauche du titre du projet qui va pivoter lors du click sur le nom afin de simuler une flèche qui point vers le bas une fois ouvert.
+
+
+==========================================================================================================================================
+Prompt 7
+
+J'ai un problème, quand la scroll barre apparait, elle me décale la page, essaie de faire en sorte que quand la barre s'affiche, elle passe par dessus la page et ne la décale pas.
+Tu peux même faire en sorte qu'elle disparait si on ne scroll pas au bout de 3 seconde
+
+
+==========================================================================================================================================
+Prompt 8
+
+A partir de ce HTML, re change le sens des flèche comme tout a l'heure pour qu'il pointe sur vers le bas que une fois ouvert et a droite une fois fermé.
+
+Egalement remet le style de la scroll barre d'avant mais sans la faire disparaitre et qu'elle passe par dessus la page sans la décaler
+
+
+==========================================================================================================================================
+Prompt 9

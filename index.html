@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV — Profil Professionnel</title>
+  <meta name="color-scheme" content="dark light">
+  <style>
+    /* =========================
+       RESET & BASE
+       ========================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       THEME VARIABLES
+       ========================= */
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --surface-2: #1d212a;
+      --text: #e6e8eb;
+      --text-muted: #aab1b8;
+      --primary: #00bcd4;
+      --primary-700: #009fb2;
+      --accent: #7c4dff;
+      --border: #262a33;
+      --shadow: 0 8px 24px rgba(0,0,0,0.35);
+      --radius: 14px;
+      --focus: 0 0 0 3px rgba(0,188,212,0.35);
+      --link: #68d6e5;
+    }
+
+    body.light {
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-2: #f1f3f8;
+      --text: #1b1e24;
+      --text-muted: #4d5562;
+      --primary: #006d77;
+      --primary-700: #005864;
+      --accent: #5b3fd1;
+      --border: #dfe3ea;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --focus: 0 0 0 3px rgba(0,109,119,0.25);
+      --link: #005b8f;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: background 300ms ease, color 300ms ease;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* =========================
+       HEADER (FIXE)
+       ========================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in oklab, var(--surface), transparent 30%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand h1 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--text-muted);
+      margin-top: 2px;
+      font-size: 0.85rem;
+    }
+
+    /* Tabs (boutons d’accès aux sections) */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform 120ms ease, background 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-1px);
+      background: color-mix(in oklab, var(--surface-2), var(--primary) 12%);
+      border-color: color-mix(in oklab, var(--border), var(--primary) 40%);
+    }
+
+    .tab-btn:focus-visible { outline: none; box-shadow: var(--focus); }
+
+    .tab-btn.active {
+      background: linear-gradient(180deg, color-mix(in oklab, var(--surface-2), var(--primary) 16%), var(--surface-2));
+      border-color: color-mix(in oklab, var(--border), var(--primary) 60%);
+      color: var(--text);
+    }
+
+    /* Toggle de thème */
+    .theme-toggle {
+      appearance: none;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: var(--shadow);
+      transition: transform 140ms ease, filter 200ms ease;
+    }
+
+    .theme-toggle:hover { transform: translateY(-1px) scale(1.02); filter: brightness(1.05); }
+    .theme-toggle:active { transform: translateY(1px) scale(0.99); }
+    .theme-toggle:focus-visible { outline: none; box-shadow: var(--focus); }
+
+    /* =========================
+       MAIN LAYOUT
+       ========================= */
+    main {
+      max-width: 1040px;
+      margin: 22px auto;
+      padding: 0 20px 60px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      transition: background 300ms ease, border-color 300ms ease, transform 180ms ease;
+    }
+
+    .card:hover { transform: translateY(-2px); }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--primary);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .muted { color: var(--text-muted); }
+
+    /* Contenu de section */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 820px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    ul.clean { list-style: none; margin: 0; padding: 0; }
+    ul.clean li {
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    ul.clean li:last-child { border-bottom: none; }
+
+    /* =========================
+       SECTIONS (onglets)
+       ========================= */
+    .section { display: none; opacity: 0; transform: translateY(10px); transition: opacity 240ms ease, transform 240ms ease; }
+    .section.active { display: block; opacity: 1; transform: translateY(0); }
+
+    /* Badges / chips */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      margin: 6px 6px 0 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 200ms ease, border-color 200ms ease, transform 160ms ease;
+    }
+    .badge:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in oklab, var(--border), var(--primary) 40%);
+      background: color-mix(in oklab, var(--surface-2), var(--primary) 10%);
+    }
+
+    /* Petites icônes rondes */
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      max-width: 1040px;
+      margin: 30px auto 80px;
+      padding: 0 20px;
+      color: var(--text-muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+  
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 8px solid var(--text); /* flèche vers la droite */
+  transition: transform 0.3s ease;
+}
+.arrow.open {
+  transform: rotate(90deg); /* flèche vers le bas */
+}
+
+
+.overlay-scrollbar {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 8px;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 1; /* toujours visible */
+}
+.overlay-scrollbar .track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+.overlay-scrollbar .thumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 36px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary, #00bcd4), #fff 10%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  pointer-events: auto;
+  cursor: grab;
+}
+body.light .overlay-scrollbar .thumb {
+  background: color-mix(in oklab, var(--primary, #006d77), #000 15%);
+}
+.overlay-scrollbar .thumb:active {
+  cursor: grabbing;
+}
+
+
+html, body {
+  overflow: auto;           /* keep scroll */
+  scrollbar-width: none;    /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge legacy */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important; /* Chrome/Safari/Edge */
+}
+
+</style>
+</head>
+<body>
+  <!-- HEADER FIXE AVEC ONGLET + TOGGLE THEME -->
+  <header role="banner" aria-label="En-tête du CV">
+    <div class="header-inner">
+      <div class="brand" aria-label="Identité">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <h1>Moi</h1>
+          <small>Développeur Front-End • Lyon</small>
+        </div>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="Navigation des sections">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" data-target="about">À propos</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" data-target="skills">Compétences</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" data-target="projects">Projets</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" data-target="contact">Contact</button>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" aria-pressed="false" aria-label="Changer le thème (clair/sombre)">
+        Changer de thème
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENU -->
+  <main>
+    <!-- À PROPOS -->
+    <section id="about" class="section active" role="tabpanel" aria-labelledby="about-tab">
+      <div class="card">
+        <div class="section-title">
+          <span class="dot" aria-hidden="true"></span>
+          À propos
+        </div>
+        <div class="grid-2">
+          <div>
+            <p>
+              Passionné par la création d’interfaces performantes et accessibles, je conçois des expériences
+              utilisateur modernes avec une grande attention portée aux détails et à la performance web.
+            </p>
+            <p class="muted">
+              Poste recherché : <strong>Développeur Front-End</strong> (React / TypeScript).  
+              Environnement idéal : équipe produit, code review, CI/CD, design system.
+            </p>
+          </div>
+          <div>
+            <div class="badge"><span class="dot"></span>Curiosité & veille</div>
+            <div class="badge"><span class="dot"></span>UX orientée data</div>
+            <div class="badge"><span class="dot"></span>Accessibilité (WCAG)</div>
+            <div class="badge"><span class="dot"></span>Performance & audits</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section id="skills" class="section" role="tabpanel" aria-labelledby="skills-tab">
+      <div class="card">
+        <div class="section-title">
+          <span class="dot" aria-hidden="true"></span>
+          Compétences
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3>Techniques</h3>
+            <ul class="clean">
+              <li><strong>HTML5 / CSS3</strong> — Grid, Flexbox, animations, BEM</li>
+              <li><strong>JavaScript / TypeScript</strong> — ES2023, modules, tooling</li>
+              <li><strong>React</strong> — hooks, context, router, testing (RTL)</li>
+              <li><strong>State</strong> — Redux Toolkit, Zustand, React Query</li>
+              <li><strong>Tests</strong> — Jest, Playwright (E2E)</li>
+              <li><strong>CI/CD</strong> — GitHub Actions, Vite, Webpack</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Transverses</h3>
+            <ul class="clean">
+              <li>UX & accessibilité — ARIA, contrastes, navigation clavier</li>
+              <li>Communication & collaboration (Agile, Scrum)</li>
+              <li>Documentation et design system (Storybook)</li>
+              <li>SEO technique et Web Vitals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section id="projects" class="section" role="tabpanel" aria-labelledby="projects-tab">
+        <div class="card">
+            <div class="section-title">
+                <span class="dot" aria-hidden="true"></span>
+                Projets
+            </div>
+
+            <ul class="clean" id="projectList">
+            <li class="project-item">
+                <button class="project-toggle">
+                    <span class="arrow"></span>
+                    <strong>Portfolio interactif</strong> — Site personnel moderne
+                </button>
+                <div class="project-details">
+                    <p>
+                        Portfolio complet avec animations CSS et JS, lazy-loading des images, optimisé pour Lighthouse (score >95).
+                        Stack : Vite, React, TypeScript, hébergement Netlify.
+                    </p>
+                </div>
+            </li>
+
+            <li class="project-item">
+                <button class="project-toggle">
+                    <span class="arrow"></span>
+                    <strong>Dashboard analytique</strong> — Visualisation de données
+                </button>
+                <div class="project-details">
+                    <p>
+                        Dashboard avec graphiques dynamiques, filtrage avancé, export CSV/PDF.
+                        Stack : React, Zustand, Chart.js, API REST sécurisée.
+                    </p>
+                </div>
+            </li>
+
+            <li class="project-item">
+                <button class="project-toggle">
+                    <span class="arrow"></span>
+                    <strong>Mini e-commerce</strong> — Simulation de boutique
+                </button>
+                <div class="project-details">
+                    <p>
+                        Application e-commerce avec panier, paiement simulé, i18n, responsive design.
+                        Stack : React, Redux Toolkit, Stripe (mock), CSS Modules.
+                    </p>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </section>
+
+    <style>
+    /* Styles pour l'accordéon avec flèche inversée */
+    .project-item {
+        border-bottom: 1px solid var(--border);
+        padding: 10px 0;
+    }
+
+    .project-toggle {
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: background 0.2s;
+    }
+
+    .project-toggle:hover {
+        background: color-mix(in oklab, var(--surface-2), var(--primary) 10%);
+        border-radius: 8px;
+    }
+
+    /* Flèche par défaut vers le bas */
+    .arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 8px solid var(--text); /* flèche vers le bas */
+        transition: transform 0.3s ease;
+    }
+
+    /* Quand ouvert, flèche vers le haut */
+    .arrow.open {
+        transform: rotate(180deg);
+    }
+
+    .project-details {
+        display: none;
+        padding: 8px 12px;
+        color: var(--text-muted);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .project-details.open {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 8px solid var(--text); /* flèche vers la droite */
+  transition: transform 0.3s ease;
+}
+.arrow.open {
+  transform: rotate(90deg); /* flèche vers le bas */
+}
+
+
+.overlay-scrollbar {
+  position: fixed;
+  right: 8px;
+  top: 8px;
+  bottom: 8px;
+  width: 8px;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 1; /* toujours visible */
+}
+.overlay-scrollbar .track {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: transparent;
+}
+.overlay-scrollbar .thumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  min-height: 36px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--primary, #00bcd4), #fff 10%);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  pointer-events: auto;
+  cursor: grab;
+}
+body.light .overlay-scrollbar .thumb {
+  background: color-mix(in oklab, var(--primary, #006d77), #000 15%);
+}
+.overlay-scrollbar .thumb:active {
+  cursor: grabbing;
+}
+
+</style>
+
+    <script>
+
+document.querySelectorAll('.project-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const details = button.nextElementSibling;
+    const arrow = button.querySelector('.arrow');
+    const isOpen = details.classList.contains('open');
+
+    document.querySelectorAll('.project-details').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.arrow').forEach(a => a.classList.remove('open'));
+
+    if (!isOpen) {
+      details.classList.add('open');
+      arrow.classList.add('open');
+    }
+  });
+});
+
+</script>
+
+    <!-- Ajout dans la section Contact -->
+    <section id="contact" class="section" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="card">
+            <div class="section-title">
+                <span class="dot" aria-hidden="true"></span>
+                Contact
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <ul class="clean">
+                    <li>Email : <a href="mailto:fourretoutspamtest@gmail.com">fourretoutspamtest@gmail.com</a></li>
+                    <li>Téléphone :  +33 0 00 00 00 00</li>
+                    <li>Localisation : Lyon (hybride/remote)</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="clean">
+                    <li>LinkedIn : <a href="https://linkedin.com/in/alexmoreau/in/alexmoreau">Lien</a></li>
+                    <li>GitHub : <a href="https://github.com/alexlex-moreau">Lien</a></li>
+                    <li>Portfolio : <a href="https://portefilio.com">Lien</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Formulaire -->
+            <hr style="margin:20px 0; border:none; border-top:1px solid var(--border);">
+            <h3>Envoyer un message</h3>
+            <form id="contactForm" style="display:flex; flex-direction:column; gap:14px; margin-top:10px;">
+                <label for="subject">Objet :</label>
+                <select id="subject" name="subject" required style="padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);">
+                    <option value="" disabled selected>Choisissez un objet</option>
+                    <option value="Demande d'information">Demande d'information</option>
+                    <option value="Proposition de collaboration">Proposition de collaboration</option>
+                    <option value="Retour sur votre CV">Retour sur votre CV</option>
+                    <option value="Autre">Autre</option>
+                </select>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required style="padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text); resize:vertical;"></textarea>
+
+                <button type="submit" style="align-self:flex-start; padding:10px 18px; border:none; border-radius:999px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; font-weight:bold; cursor:pointer; transition:transform 0.2s;">
+                    Envoyer
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+    // Gestion du formulaire
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const subject = encodeURIComponent(document.getElementById('subject').value);
+        const message = encodeURIComponent(document.getElementById('message').value);
+        const mailtoLink = `mailto:fourretoutspamtest@gmail.com?subject=${subject}&body=${message}`;
+        window.location.href = mailtoLink;
+    });
+    </script>
+
+  </main>
+
+  <footer>
+    © 2025 — CV de démonstration.
+  </footer>
+
+  <script>
+    // =========================
+    // THEME TOGGLE (avec localStorage)
+    // =========================
+    const body = document.body;
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Ré-appliquer le thème sauvegardé
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      body.classList.add('light');
+      themeToggle.setAttribute('aria-pressed', 'true');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const isLight = body.classList.toggle('light');
+      themeToggle.setAttribute('aria-pressed', String(isLight));
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // =========================
+    // TABS NAVIGATION (montrer/masquer sections)
+    // =========================
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('.section');
+
+    function activateTab(targetId) {
+      // boutons
+      tabButtons.forEach(btn => {
+        const isActive = btn.dataset.target === targetId;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', String(isActive));
+      });
+      // sections
+      sections.forEach(sec => {
+        const isActive = sec.id === targetId;
+        sec.classList.toggle('active', isActive);
+        sec.setAttribute('aria-hidden', String(!isActive));
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.target;
+        activateTab(id);
+        // micro-interaction
+        btn.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-2px)' }, { transform: 'translateY(0)' }], {
+          duration: 180,
+          easing: 'ease-out'
+        });
+      });
+      // accessibilité clavier: Enter/Space
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateTab(btn.dataset.target);
+        }
+      });
+    });
+
+    // Par défaut, s'assurer que la section "about" est visible et les autres cachées
+    activateTab('about');
+  </script>
+
+<div class="overlay-scrollbar" id="overlayScrollbar" aria-hidden="true">
+  <div class="track"></div>
+  <div class="thumb" id="overlayThumb"></div>
+</div>
+
+
+<script>
+(function() {
+  const overlay = document.getElementById('overlayScrollbar');
+  const thumb = document.getElementById('overlayThumb');
+
+  let dragging = false;
+  let dragStartY = 0;
+  let startScrollTop = 0;
+
+  function getMetrics() {
+    const doc = document.documentElement;
+    const body = document.body;
+    const scrollTop = window.scrollY || doc.scrollTop || body.scrollTop || 0;
+    const scrollHeight = Math.max(body.scrollHeight, doc.scrollHeight);
+    const viewportH = window.innerHeight || doc.clientHeight;
+    const maxScroll = Math.max(1, scrollHeight - viewportH);
+    return { scrollTop, scrollHeight, viewportH, maxScroll };
+  }
+
+  function updateThumb() {
+    const { scrollTop, scrollHeight, viewportH, maxScroll } = getMetrics();
+    const trackH = overlay.clientHeight;
+    let thumbH = Math.max(36, Math.round((viewportH / scrollHeight) * trackH));
+    const ratio = scrollTop / maxScroll;
+    const maxTop = trackH - thumbH;
+    const thumbTop = Math.round(ratio * maxTop);
+    thumb.style.height = thumbH + 'px';
+    thumb.style.top = thumbTop + 'px';
+  }
+
+  window.addEventListener('scroll', updateThumb, { passive: true });
+  window.addEventListener('resize', updateThumb);
+
+  thumb.addEventListener('mousedown', (e) => {
+    dragging = true;
+    dragStartY = e.clientY;
+    startScrollTop = window.scrollY;
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const deltaY = e.clientY - dragStartY;
+    const trackH = overlay.clientHeight;
+    const thumbH = thumb.clientHeight;
+    const scrollPerPx = (getMetrics().maxScroll) / Math.max(1, (trackH - thumbH));
+    const targetScroll = startScrollTop + deltaY * scrollPerPx;
+    window.scrollTo({ top: targetScroll, behavior: 'auto' });
+  });
+
+  window.addEventListener('mouseup', () => { dragging = false; });
+
+  updateThumb();
+})();
+</script>
+
+</body>
+</html>
+
