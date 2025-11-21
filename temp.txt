@@ -1,3 +1,0 @@
-d'accueil du site
-- En général, change l'animation de quand on on passe notre curseur au dessus du contenu des différentes catégories, pour agrandir légèrement l'interface plutôt que de la surélever.
-- Dans la partie "Projet", quand on click sur un projet pour afficher les détails, il ne doit pas fermer les autres projets ouvert.

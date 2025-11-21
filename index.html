@@ -3,8 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV — Profil Professionnel</title>
+  <style>
+    html {
+      zoom: 1.15;
+    }
+  </style>
+  <title>CV - SELLIER Thibaud</title>
   <meta name="color-scheme" content="dark light">
+  <style>
+    #animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+      background: transparent;
+      display: block;
+    }
+  </style>
   <style>
     /* =========================
        RESET & BASE
@@ -171,7 +189,7 @@
     }
 
     .card {
-      background: var(--surface);
+      background: color-mix(in srgb, var(--surface) 85%, transparent 15%);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -243,12 +261,30 @@
 
     /* Footer */
     footer {
-      max-width: 1040px;
-      margin: 30px auto 80px;
-      padding: 0 20px;
+      width: 100%;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      background: none;
       color: var(--text-muted);
       text-align: center;
-      font-size: 0.95rem;
+      font-size: 0.82rem;
+      z-index: 1002;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer-bandeau {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 44px;
+      background: color-mix(in oklab, var(--surface), transparent 20%);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+      z-index: 1001;
+      pointer-events: none;
     }
   
 .arrow {
@@ -315,14 +351,15 @@ body::-webkit-scrollbar {
 </style>
 </head>
 <body>
+  <canvas id="animated-bg"></canvas>
   <!-- HEADER FIXE AVEC ONGLET + TOGGLE THEME -->
   <header role="banner" aria-label="En-tête du CV">
     <div class="header-inner">
       <div class="brand" aria-label="Identité">
         <div class="avatar" aria-hidden="true"></div>
         <div>
-          <h1>Moi</h1>
-          <small>Développeur Front-End • Lyon</small>
+          <h1>SELLIER Thibaud</h1>
+          <small>Etudiant B1 Informatique | Lyon YNOV Campus | Lyon</small>
         </div>
       </div>
 
@@ -345,25 +382,23 @@ body::-webkit-scrollbar {
     <section id="about" class="section active" role="tabpanel" aria-labelledby="about-tab">
       <div class="card">
         <div class="section-title">
-          <span class="dot" aria-hidden="true"></span>
+          
           À propos
         </div>
         <div class="grid-2">
           <div>
             <p>
-              Passionné par la création d’interfaces performantes et accessibles, je conçois des expériences
-              utilisateur modernes avec une grande attention portée aux détails et à la performance web.
+              Cela fait déjà plusieurs années que je m'interesse grandement à l'informatique et c'est pour cela que j'ai décidé d'en faire mon métier.
+              Je suis donc à la recherche d'un stage d'apprentissage dans le but d'enrichir mes connaissances et mon expérience professionnelle.
             </p>
             <p class="muted">
-              Poste recherché : <strong>Développeur Front-End</strong> (React / TypeScript).  
-              Environnement idéal : équipe produit, code review, CI/CD, design system.
+              Je recherche une entreprise qui possède déjà un ou des services informatiques afin de pouvoir m'instruire de leurs travaux et fonctionnements.
             </p>
           </div>
           <div>
-            <div class="badge"><span class="dot"></span>Curiosité & veille</div>
-            <div class="badge"><span class="dot"></span>UX orientée data</div>
-            <div class="badge"><span class="dot"></span>Accessibilité (WCAG)</div>
-            <div class="badge"><span class="dot"></span>Performance & audits</div>
+            <div class="badge"><span class="dot"></span>Curiosité & motivation</div>
+            <div class="badge"><span class="dot"></span>Developppement Informatique</div>
+            <div class="badge"><span class="dot"></span>ttt</div>
           </div>
         </div>
       </div>
@@ -373,29 +408,22 @@ body::-webkit-scrollbar {
     <section id="skills" class="section" role="tabpanel" aria-labelledby="skills-tab">
       <div class="card">
         <div class="section-title">
-          <span class="dot" aria-hidden="true"></span>
+          
           Compétences
         </div>
 
         <div class="grid-2">
           <div>
-            <h3>Techniques</h3>
+            <h3>Hard-skills</h3>
             <ul class="clean">
-              <li><strong>HTML5 / CSS3</strong> — Grid, Flexbox, animations, BEM</li>
-              <li><strong>JavaScript / TypeScript</strong> — ES2023, modules, tooling</li>
-              <li><strong>React</strong> — hooks, context, router, testing (RTL)</li>
-              <li><strong>State</strong> — Redux Toolkit, Zustand, React Query</li>
-              <li><strong>Tests</strong> — Jest, Playwright (E2E)</li>
-              <li><strong>CI/CD</strong> — GitHub Actions, Vite, Webpack</li>
+              <li><strong>HTML / CSS</strong> - Simple sites, documentations et UI</li>
+              <li><strong>Golang</strong> - Jeux, serveurs</li>
             </ul>
           </div>
           <div>
-            <h3>Transverses</h3>
+            <h3>Soft-skills</h3>
             <ul class="clean">
-              <li>UX & accessibilité — ARIA, contrastes, navigation clavier</li>
-              <li>Communication & collaboration (Agile, Scrum)</li>
-              <li>Documentation et design system (Storybook)</li>
-              <li>SEO technique et Web Vitals</li>
+              <li>Attentif et curieux</li>
             </ul>
           </div>
         </div>
@@ -406,7 +434,7 @@ body::-webkit-scrollbar {
     <section id="projects" class="section" role="tabpanel" aria-labelledby="projects-tab">
         <div class="card">
             <div class="section-title">
-                <span class="dot" aria-hidden="true"></span>
+                
                 Projets
             </div>
 
@@ -414,38 +442,29 @@ body::-webkit-scrollbar {
             <li class="project-item">
                 <button class="project-toggle">
                     <span class="arrow"></span>
-                    <strong>Portfolio interactif</strong> — Site personnel moderne
+                    <strong>Puissance 4</strong> - Jeux en Web et Golang
                 </button>
                 <div class="project-details">
                     <p>
-                        Portfolio complet avec animations CSS et JS, lazy-loading des images, optimisé pour Lighthouse (score >95).
-                        Stack : Vite, React, TypeScript, hébergement Netlify.
+                        <p>Réalisation d'un <strong>jeu de Puissance 4</strong> réalisé à l'aide des languages HTML, CSS et golang.
+                        Affiché sur son navigateur et hébergé sur un serveur local assurant son bon fonctionnement.</p>
+                        <p>On peut y retrouver plusieurs difficultés impactant la taille de la grille de jeu ainsi que différentes possibilité de changer d'information des joueurs et difficulté au cours ou à la fin de la partie</p>
+                        <p>Disponible entièrement sur mon <strong><a href="https://github.com/titiThibaud1/Power4_Projet">Github</a></strong></p>
                     </p>
                 </div>
-            </li>
+            </li> 
 
             <li class="project-item">
                 <button class="project-toggle">
                     <span class="arrow"></span>
-                    <strong>Dashboard analytique</strong> — Visualisation de données
+                    <strong>Jeux tour par tour</strong> - Jouable en terminal
                 </button>
                 <div class="project-details">
                     <p>
-                        Dashboard avec graphiques dynamiques, filtrage avancé, export CSV/PDF.
-                        Stack : React, Zustand, Chart.js, API REST sécurisée.
-                    </p>
-                </div>
-            </li>
-
-            <li class="project-item">
-                <button class="project-toggle">
-                    <span class="arrow"></span>
-                    <strong>Mini e-commerce</strong> — Simulation de boutique
-                </button>
-                <div class="project-details">
-                    <p>
-                        Application e-commerce avec panier, paiement simulé, i18n, responsive design.
-                        Stack : React, Redux Toolkit, Stripe (mock), CSS Modules.
+                        <p>Réalisation en duo d'un petit <strong>jeux de tour par tour</strong> jouable en terminal.
+                        Avec différents choix d'actions, d'achats, fabrications et combats dans le but de battre toujours plus d'énemies.</p>
+                        <p>On peut y retrouver plusieurs classes de Héros avec des capacitées différents tout comme pour les énemies pouvant être simple ou compliqué en fonction des équipements équipés, classe sélectionné et l'utilisation des objets. Le tout avec de lourds malus en cas de défaite.</p>
+                        <p>Projet réalisé entièrement en Golang et disponible sur mon <strong><a href="https://github.com/titiThibaud1/Power4_Projet">Github</a></strong></p> (lien à changer)
                     </p>
                 </div>
             </li>
@@ -567,17 +586,17 @@ body.light .overlay-scrollbar .thumb {
 
 document.querySelectorAll('.project-toggle').forEach(button => {
   button.addEventListener('click', () => {
-    const details = button.nextElementSibling;
-    const arrow = button.querySelector('.arrow');
-    const isOpen = details.classList.contains('open');
+      const details = button.nextElementSibling;
+      const arrow = button.querySelector('.arrow');
+      const isOpen = details.classList.contains('open');
 
-    document.querySelectorAll('.project-details').forEach(d => d.classList.remove('open'));
-    document.querySelectorAll('.arrow').forEach(a => a.classList.remove('open'));
-
-    if (!isOpen) {
-      details.classList.add('open');
-      arrow.classList.add('open');
-    }
+      if (isOpen) {
+        details.classList.remove('open');
+        arrow.classList.remove('open');
+      } else {
+        details.classList.add('open');
+        arrow.classList.add('open');
+      }
   });
 });
 
@@ -587,38 +606,46 @@ document.querySelectorAll('.project-toggle').forEach(button => {
     <section id="contact" class="section" role="tabpanel" aria-labelledby="contact-tab">
         <div class="card">
             <div class="section-title">
-                <span class="dot" aria-hidden="true"></span>
+                
                 Contact
             </div>
 
             <div class="grid-2">
                 <div>
                     <ul class="clean">
-                    <li>Email : <a href="mailto:fourretoutspamtest@gmail.com">fourretoutspamtest@gmail.com</a></li>
-                    <li>Téléphone :  +33 0 00 00 00 00</li>
-                    <li>Localisation : Lyon (hybride/remote)</li>
+                    <li>📧 Email : <a href="mailto:thibaudsellierpro@gmail.com">thibaudsellierpro@gmail.com</a></li>
+                    <li>📱 Téléphone :  +33 7 68 63 72 78</li>
+                    <li>📍 Localisation : Lyon (69007)</li>
                     </ul>
                 </div>
                 <div>
                     <ul class="clean">
-                    <li>LinkedIn : <a href="https://linkedin.com/in/alexmoreau/in/alexmoreau">Lien</a></li>
-                    <li>GitHub : <a href="https://github.com/alexlex-moreau">Lien</a></li>
-                    <li>Portfolio : <a href="https://portefilio.com">Lien</a></li>
+                    <div style="display:flex; gap:18px; justify-content:center; align-items:center; background:rgba(30,34,50,0.13); border-radius:14px; padding:14px; box-shadow:0 2px 8px rgba(0,0,0,0.08); width:max-content; margin:auto;">
+                      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" title="LinkedIn" style="display:inline-block;width:32px;height:32px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="#0A66C2"><rect width="32" height="32" rx="7" fill="#fff"/><path d="M9.5 12.5h3v10h-3v-10zm1.5-4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zm4 4h2.8v1.4h.04c.39-.74 1.34-1.52 2.76-1.52 2.95 0 3.5 1.94 3.5 4.46v5.62h-3v-5c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.91 1.3-1.91 2.64v5.08h-3v-10z"/></svg>
+                      </a>
+                      <a href="https://github.com/" target="_blank" rel="noopener" title="GitHub" style="display:inline-block;width:32px;height:32px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="#181717"><rect width="32" height="32" rx="7" fill="#fff"/><path d="M16 6C10.477 6 6 10.477 6 16c0 4.418 2.865 8.167 6.839 9.489.5.091.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.833.091-.646.35-1.088.636-1.34-2.221-.253-4.555-1.111-4.555-4.944 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.272.098-2.652 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0116 11.844c.85.004 1.705.115 2.504.338 1.909-1.294 2.748-1.025 2.748-1.025.546 1.38.202 2.399.099 2.652.64.699 1.028 1.592 1.028 2.683 0 3.842-2.337 4.687-4.566 4.936.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .268.18.578.688.48C23.138 24.163 26 20.418 26 16c0-5.523-4.477-10-10-10z"/></svg>
+                      </a>
+                      <a href="https://portefilio.com" target="_blank" rel="noopener" title="Portfolio" style="display:inline-block;width:32px;height:32px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="28" height="28" fill="#4cafc9"><rect width="32" height="32" rx="7" fill="#fff"/><path d="M16 8a8 8 0 100 16 8 8 0 000-16zm0 2a6 6 0 015.98 5.5h-3.46a10.1 10.1 0 00-1.52-4.5zm-2 0a10.1 10.1 0 00-1.52 4.5H9.02A6 6 0 0114 10zm-4.98 6h3.46a12.1 12.1 0 000 4H9.02A6 6 0 019.02 16zm2.5 6a10.1 10.1 0 001.52-4.5h3.46A10.1 10.1 0 0018 22a6 6 0 01-4 0zm6-1.5a12.1 12.1 0 000-4h3.46A6 6 0 0122 16zm-1.5-6a8.1 8.1 0 011.52 4.5h-3.46A8.1 8.1 0 0116 10z"/></svg>
+                      </a>
+                    </div>
                     </ul>
                 </div>
             </div>
 
             <!-- Formulaire -->
             <hr style="margin:20px 0; border:none; border-top:1px solid var(--border);">
-            <h3>Envoyer un message</h3>
+            <h3>Me contacter</h3>
             <form id="contactForm" style="display:flex; flex-direction:column; gap:14px; margin-top:10px;">
                 <label for="subject">Objet :</label>
                 <select id="subject" name="subject" required style="padding:10px; border-radius:8px; border:1px solid var(--border); background:var(--surface-2); color:var(--text);">
                     <option value="" disabled selected>Choisissez un objet</option>
-                    <option value="Demande d'information">Demande d'information</option>
-                    <option value="Proposition de collaboration">Proposition de collaboration</option>
-                    <option value="Retour sur votre CV">Retour sur votre CV</option>
-                    <option value="Autre">Autre</option>
+                    <option value="Demande d'information">CV web - Demande d'informations</option>
+                    <option value="Proposition de collaboration">CV web - Proposition de collaboration</option>
+                    <option value="Retour sur votre CV">CV web - Retour sur mon CV</option>
+                    <option value="Autre">CV web - Autre</option>
                 </select>
 
                 <label for="message">Message :</label>
@@ -644,8 +671,11 @@ document.querySelectorAll('.project-toggle').forEach(button => {
 
   </main>
 
+  <div class="footer-bandeau"></div>
   <footer>
-    © 2025 — CV de démonstration.
+    <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;gap:2px;padding:8px 0 6px 0;font-size:0.82rem;color:var(--text-muted); position:relative; z-index:2;">
+      <span>© 2025 Thibaud SELLIER. Tous droits réservés.  |  Ce site est une représentation de CV interactif personnel. Toute reproduction est interdite.  |  <a href="#" style="color:var(--link);text-decoration:underline;">Mentions légales</a> | <a href="#" style="color:var(--link);text-decoration:underline;">Politique de confidentialité</a></span>
+    </div>
   </footer>
 
   <script>
@@ -774,6 +804,87 @@ document.querySelectorAll('.project-toggle').forEach(button => {
 })();
 </script>
 
+  <script>
+    // Fond animé : ciel étoilé nocturne avec interaction souris smooth
+    const canvas = document.getElementById('animated-bg');
+    const ctx = canvas.getContext('2d');
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    canvas.width = w;
+    canvas.height = h;
+
+    window.addEventListener('resize', () => {
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+    });
+
+    // Génère des étoiles
+    const STAR_COUNT = 220;
+    const stars = Array.from({length: STAR_COUNT}, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.2 + 0.3,
+      twinkle: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.5 + 0.2,
+      grow: 0 // pour l'effet smooth
+    }));
+
+    // Interaction souris
+    let mouse = { x: w/2, y: h/2 };
+    window.addEventListener('mousemove', e => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    function lerp(a, b, t) {
+      return a + (b - a) * t;
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, w, h);
+      // Fond nuit
+      const grad = ctx.createLinearGradient(0, 0, 0, h);
+      grad.addColorStop(0, '#10131a');
+      grad.addColorStop(1, '#23263a');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Étoiles
+      for (let star of stars) {
+        // Distance à la souris
+        const dx = star.x - mouse.x;
+        const dy = star.y - mouse.y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        // Scintillement
+        let alpha = 0.7 + 0.3 * Math.sin(Date.now()/700 * star.speed + star.twinkle);
+        let targetGrow = 0;
+        let glow = 6;
+        if (dist < 40) {
+          alpha = 1;
+          targetGrow = 1.2;
+          glow = 16;
+        } else if (dist < 90) {
+          alpha = 0.9;
+          targetGrow = 0.4;
+          glow = 10;
+        }
+        // Interpolation encore plus douce
+        star.grow = lerp(star.grow, targetGrow, 0.045);
+        let radius = star.r * (1 + star.grow);
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, radius, 0, 2*Math.PI);
+        ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+        ctx.shadowColor = '#fff';
+        ctx.shadowBlur = glow;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  </script>
 </body>
 </html>
 

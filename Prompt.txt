@@ -64,3 +64,9 @@ Egalement remet le style de la scroll barre d'avant mais sans la faire disparait
 
 ==========================================================================================================================================
 Prompt 9
+
+Dans la partie "Projet", quand on click sur un projet pour afficher les détails, il ne doit pas fermer les autres projets ouvert. Puis renvoie le fichier HTML avec les modifications faites
+
+
+==========================================================================================================================================
+Prompt 10

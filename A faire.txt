@@ -1,0 +1,13 @@
+- Modif lien projet DnD
+- Diminuer la taille du bandeau du footer
+- + de contenu dans les catégories
+- Photo
+- Couleur du cadre des logo dans Contact a modif
+- Faire en sorte que si on refresh, on conserve ce qu'on a écrit dans Contact et le déroulant des Projets
+- Ajouter un distinction entre les catégorie de skills et les skills
+- Phrase d'accroche et info perso a travailler et completer (adresse, mobilité etc)
+- Revoir l'animation du click sur les bouton et au survole
+- Ajouter lien portfilio quand il sera fait
+- Mettre a jour et terminer le LinkedIn
+- Ajouter des emojis pour rendre plus visuel
+- Faire bouger les étoiles en font pour faire du leger mouvement sur l'écran
