@@ -1,13 +1,27 @@
+important :
+- Ajouter une catégorie, accueil avec la phrase d'accroche et mots clé
 - Modif lien projet DnD
-- Diminuer la taille du bandeau du footer
 - + de contenu dans les catégories
 - Photo
+- Phrase d'accroche et info perso a travailler et compléter (adresse, mobilité etc)
+- Mettre a jour et terminer le LinkedIn
+- Parcours des formation dans le temps
+- Stats sur moi (année de pratique, choses faites annexe comme projet ou caritatif)
+
+
+
+annexe :
+- Diminuer la taille du bandeau du footer
 - Couleur du cadre des logo dans Contact a modif
 - Faire en sorte que si on refresh, on conserve ce qu'on a écrit dans Contact et le déroulant des Projets
 - Ajouter un distinction entre les catégorie de skills et les skills
-- Phrase d'accroche et info perso a travailler et completer (adresse, mobilité etc)
 - Revoir l'animation du click sur les bouton et au survole
-- Ajouter lien portfilio quand il sera fait
-- Mettre a jour et terminer le LinkedIn
+- Ajouter lien portfolio quand il sera fait
 - Ajouter des emojis pour rendre plus visuel
-- Faire bouger les étoiles en font pour faire du leger mouvement sur l'écran
+- Faire bouger les étoiles en font pour faire du léger mouvement sur l'écran
+- Modifier le curseur et encore au dessus de bouton ou lien
+- avoir des sorte de pop up pour des infos a voir
+- ester egg sympa à cacher
+- theme sombre et clair via une image soleil et lune
+- ajouter plus d'illustration et animations
+- Ajouter une demo directe depuis le site pour les projets
